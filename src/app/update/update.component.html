@@ -1,0 +1,31 @@
+<div >
+<button class="delete" type="button" (click)="delete()">Delete</button>
+<button class="update" type="button" (click)="update()">Update</button>
+<button class="add" type="button" (click)="add()">Add</button>
+</div>
+<div id="myModal" class="modal" #updateWindow>
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" #closeButton (click)='close()'>&times;</span>
+            {{title}}
+          </div>
+          <div class="modal-body">
+             
+            <form [formGroup]="form">
+ 
+           <label>Title: </label> <input type="text" class="title" placeholder="Title" formControlName="title">
+           <br/>
+           <textarea rows = "5"  class="description" name = "description" formControlName="desc" placeholder="Enter details here...">
+              
+           </textarea>
+          </form>
+          </div>
+          <div class="modal-footer">
+              <button class="modal-button" type="button" (click)="close()">Cancel</button>
+            <button *ngIf="addClicked" class="modal-button" type="button" [disabled]="!form.valid" (click)="addText()">Add</button>
+            <button *ngIf="updateClicked" class="modal-button" type="button" [disabled]="!form.valid" (click)="UpdateText()">Update</button>
+            </div>
+        </div>
+      
+</div>

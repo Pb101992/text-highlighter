@@ -1,0 +1,29 @@
+<div>
+<div class='menu-bar'>
+<app-update (selectChange)='selectChange($event)' (updateData)='updateData($event)'></app-update>
+<input type="text" class="search" placeholder="Search words" [formControl]="searchedWordsControl">
+</div>
+
+    <div class='side-nav'>
+        <ul *ngIf=fullContent>
+                <li *ngFor="let t of objectKeys(fullContent)">
+                       <a href="#" [ngClass]="{active:fullContent[t]['selected']}" (click)="getData(fullContent[t]['title'])"> {{ fullContent[t]['title'] }}</a>
+                      </li></ul>
+    </div >
+      <div class='content'>
+
+
+<p
+  appHighlight
+  [searchedWords]="searchedWords$ | async"
+  [text]="text"
+  classToApply="selected"
+></p>
+
+    </div>
+    
+
+</div>
+
+
+
