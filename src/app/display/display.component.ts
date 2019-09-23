@@ -6,8 +6,7 @@ import {AppService} from "../app.service";
 
 @Component({
   selector: 'app-display',
-  templateUrl: './display.component.html',
-  styleUrls: ['./display.component.css']
+  templateUrl: './display.component.html'
 })
 export class DisplayComponent {
   private content: string;
@@ -16,12 +15,25 @@ export class DisplayComponent {
     private titles=[];
     public objectKeys = Object.keys;
     private text='';
-
+    private searchedWordsControl = new FormControl('');
     public constructor(private appService:AppService) {
       this.showConfig();
       this.fullContent=this.appService.fullData;
     }
-
+   
+    //search text in full content and if it exists highlights the title
+    textChanged() {
+      let value=this.searchedWordsControl.value;
+      for(let i=0;i<this.fullContent.length;i++){
+        if(value!="" && this.fullContent[i]['desc'].includes(value))
+        {
+          this.fullContent[i]['highlight']=true;
+        }else{
+          this.fullContent[i]['highlight']=false;
+        }
+      }
+     }
+  
     //sunscribe data from appservice and maps to UI 
     showConfig() {
       this.appService.getConfig()
@@ -33,7 +45,7 @@ export class DisplayComponent {
         });
     }
 
-  searchedWordsControl = new FormControl('')
+  
 
   //Data for directive for initialization
   searchedWords$: Observable<string[]> = this

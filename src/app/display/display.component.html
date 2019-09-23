@@ -1,13 +1,13 @@
 <div>
 <div class='menu-bar'>
 <app-update (selectChange)='selectChange($event)' (updateData)='updateData($event)' (deleteData)='deleteData($event)'></app-update>
-<input type="text" class="search" placeholder="Search words" [formControl]="searchedWordsControl">
+<input type="text" class="search" placeholder="Search words" (ngModelChange)="textChanged()" [formControl]="searchedWordsControl">
 </div>
 
     <div class='side-nav'>
         <ul *ngIf=fullContent>
                 <li *ngFor="let t of objectKeys(fullContent)">
-                       <a href="#" [ngClass]="{active:fullContent[t]['selected']}" (click)="getData(fullContent[t]['title'])"> {{ fullContent[t]['title'] }}</a>
+                       <a href="#" [ngClass]="{active:fullContent[t]['selected'],highlight:fullContent[t]['highlight']}" (click)="getData(fullContent[t]['title'])"> {{ fullContent[t]['title'] }}</a>
                       </li></ul>
     </div >
       <div class='content'>
