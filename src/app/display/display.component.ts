@@ -56,11 +56,18 @@ export class DisplayComponent {
         if(this.fullContent[i]['title']===data['oldTitle']){
           this.fullContent[i]['title']=data['title'];
           this.fullContent[i]['desc']=data['desc'];
+          this.getData(data['title']);
           }
        
       }
     }
-
+    deleteData(i){
+      this.fullContent.splice(i,1);
+      if(i===this.fullContent.length-1)
+      this.getData(this.fullContent[0]['title']);
+      else
+      this.getData(this.fullContent[i]['title']);
+    }
     //Called when title is clicked from left navigation bar to display its decription
     getData(key){
       for(let i=0;i<this.fullContent.length;i++){

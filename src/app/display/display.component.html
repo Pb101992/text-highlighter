@@ -1,6 +1,6 @@
 <div>
 <div class='menu-bar'>
-<app-update (selectChange)='selectChange($event)' (updateData)='updateData($event)'></app-update>
+<app-update (selectChange)='selectChange($event)' (updateData)='updateData($event)' (deleteData)='deleteData($event)'></app-update>
 <input type="text" class="search" placeholder="Search words" [formControl]="searchedWordsControl">
 </div>
 

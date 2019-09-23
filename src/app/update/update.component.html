@@ -12,7 +12,7 @@
           </div>
           <div class="modal-body">
              
-            <form [formGroup]="form">
+            <form [formGroup]="form"  *ngIf="addClicked || updateClicked">
  
            <label>Title: </label> <input type="text" class="title" placeholder="Title" formControlName="title">
            <br/>
@@ -20,9 +20,13 @@
               
            </textarea>
           </form>
+          <p *ngIf="deleteClicked">
+            Are you sure you want to delete this data?
+          </p>
           </div>
           <div class="modal-footer">
               <button class="modal-button" type="button" (click)="close()">Cancel</button>
+              <button *ngIf="deleteClicked" class="modal-button" type="button" (click)="confirm()">Delete</button>
             <button *ngIf="addClicked" class="modal-button" type="button" [disabled]="!form.valid" (click)="addText()">Add</button>
             <button *ngIf="updateClicked" class="modal-button" type="button" [disabled]="!form.valid" (click)="UpdateText()">Update</button>
             </div>
