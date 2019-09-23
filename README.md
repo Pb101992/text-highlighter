@@ -1,12 +1,12 @@
 # TextHighlighter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.7.
-This projecthe displays titles in left navigation bar and its description in side content.
-The text is from the content.
+This projec displays the titles in left navigation bar and its description in side content.
+The text is from the content in data.json file.
 New data can be added, updated or deleted.
-On refresh the data is reset to data the data in data.json file.
-Selection moves to newly added on add data
-Searches string in complete array and highlights title too.
+On refresh the data is reset to the data in data.json file.
+Selection moves to newly added title when new data is added.
+Search text in complete data and highlits title respectively.
 
 
 ## Development server
