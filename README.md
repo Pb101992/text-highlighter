@@ -5,6 +5,7 @@ This projecthe displays titles in left navigation bar and its description in sid
 The text is from the content.
 New data can be added, updated or deleted.
 On refresh the data is reset to data the data in data.json file.
+Selection moves to newly added on add data
 
 ## Development server
 
